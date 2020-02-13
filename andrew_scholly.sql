@@ -28,10 +28,10 @@ CREATE TABLE files (
 );
 /*after that the threads table*/
 CREATE TABLE threads (
-    user_sent varchar(20), CONSTRAINT thread_id PRIMARY KEY,
-    CONSTRAINT user_id FOREIGN KEY REFERENCES users(user_id), time_created varchar(25),
-    CONSTRAINT channel_id FOREIGN KEY REFERENCES channel(channel_id),
-     emojis_added INT, amount_of_replies int()
+	who_made varchar(25) REFERENCES users(username),
+	where_started varchar(25) REFERENCES channels(name),
+    threads varchar(25) CONSTRAINT thread_id PRIMARY KEY, emojis_added int,
+    amount_of_replies int, time_uploaded varchar(10)
 );
 /*Before values I am going to input joins for the relations*/
 SELECT *
